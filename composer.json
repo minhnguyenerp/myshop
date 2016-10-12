@@ -1,0 +1,50 @@
+{
+    "name": "minhnguyenerp/myshop",
+    "description": "My Shop",
+    "type": "project",
+    "keywords": ["yii2", "application", "shop", "minhnguyenerp"],
+	"homepage": "http://ivyerp.com",
+    "license": "My License",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "minhnguyenerp",
+            "email": "minhnguyenerp@gmail.com",
+            "role": "Developer"
+        }
+    ],
+	"require": {
+		"php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+		"yiisoft/yii2-jui": "*",
+		"yiidoc/yii2-redactor": "*",
+		"creocoder/yii2-nested-sets": "@dev",
+		"johnitvn/yii2-rbac-plus": "*",
+		"mihaildev/yii2-elfinder": "*"
+	},
+	"scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+	"extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        },
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
